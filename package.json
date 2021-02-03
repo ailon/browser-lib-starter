@@ -1,0 +1,18 @@
+{
+  "name": "lib-dev-starter-test",
+  "version": "1.0.0",
+  "description": "lib developer starter kit",
+  "main": "lib-dev-starter-test.js",
+  "module": "lib-dev-starter-test.esm.js",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "build": "rollup --config rollup.config.prod.js"
+  },
+  "dependencies": {
+    "@rollup/plugin-typescript": "^8.1.1",
+    "rollup": "^2.38.4",
+    "tslib": "^2.1.0",
+    "typescript": "^4.1.3"
+  }
+}
