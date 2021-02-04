@@ -1,7 +1,7 @@
-export default class LibDemo {
-  public addHello() {
+export class LibDemo {
+  public addHello(target: HTMLElement) {
     const helloBox = document.createElement('div');
     helloBox.innerHTML = 'Hello!';
-    document.body.appendChild(helloBox);
+    target.appendChild(helloBox);
   }
 }
