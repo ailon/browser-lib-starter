@@ -1,9 +1,29 @@
 import typescript from '@rollup/plugin-typescript';
 import pkg from './package.json';
+import del from 'rollup-plugin-delete';
+import dts from 'rollup-plugin-dts';
 
 const outputDir = './dist/';
 
 export default [{
+  input: ['./src/index.ts'],
+  output: {
+    dir: './dts/'
+  },
+  plugins: [
+    del({ targets: ['dts/*', 'dist/*']}),
+    typescript({ 
+      declaration: true, 
+      outDir: './dts/', 
+      rootDir: './src/', 
+      exclude: ['./test/**/*', './dts/**/*', './dist/**/*'] 
+    }),
+  ]
+}, {
+  input: "./dts/index.d.ts",
+  output: [{ file: `./dist/${pkg.name}.d.ts`, format: "es" }],
+  plugins: [dts()],
+}, {
   input: ['src/index.ts'],
   output: [
     {
@@ -18,5 +38,8 @@ export default [{
       sourcemap: true
     }
   ],
-  plugins: [typescript()]
+  plugins: [
+    typescript(),
+    del({ targets: ['dts/*']})
+  ]
 }];
