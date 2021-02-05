@@ -4,6 +4,7 @@ import del from 'rollup-plugin-delete';
 import dts from 'rollup-plugin-dts';
 import { terser } from 'rollup-plugin-terser';
 import generatePackageJson from 'rollup-plugin-generate-package-json';
+import copy from 'rollup-plugin-copy';
 
 const outputDir = './dist/';
 const globalName = pkg.name; // replace if your package name is not compatible
@@ -52,6 +53,13 @@ export default [{
     }),
     typescript(),
     terser(),
+    copy({
+      targets: [{
+        src: 'README.md', dest: 'dist'
+      },{
+        src: 'LICENSE', dest: 'dist'
+      },]
+    }),
     del({ targets: ['dts/*']})
   ]
 }];
