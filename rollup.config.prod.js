@@ -3,8 +3,10 @@ import pkg from './package.json';
 import del from 'rollup-plugin-delete';
 import dts from 'rollup-plugin-dts';
 import { terser } from 'rollup-plugin-terser';
+import generatePackageJson from 'rollup-plugin-generate-package-json';
 
 const outputDir = './dist/';
+const globalName = pkg.name; // replace if your package name is not compatible
 
 export default [{
   input: ['./src/index.ts'],
@@ -34,12 +36,20 @@ export default [{
     },
     {
       file: outputDir + pkg.main,
-      name: 'markerjs2',
+      name: globalName,
       format: 'umd',
       sourcemap: true
     }
   ],
   plugins: [
+    generatePackageJson({
+      baseContents: (pkg) => {
+        pkg.scripts = {};
+        pkg.dependencies = {};
+        pkg.devDependencies = {};
+        return pkg;
+      }
+    }),
     typescript(),
     terser(),
     del({ targets: ['dts/*']})
