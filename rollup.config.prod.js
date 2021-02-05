@@ -9,6 +9,15 @@ import copy from 'rollup-plugin-copy';
 const outputDir = './dist/';
 const globalName = pkg.name; // replace if your package name is not compatible
 
+const banner = `/* **********************************
+${pkg.name} version ${pkg.version}
+@license ${pkg.license}
+
+copyright ${pkg.author}
+see README and LICENSE for details
+********************************** */`;
+
+
 export default [{
   input: ['./src/index.ts'],
   output: {
@@ -33,13 +42,15 @@ export default [{
     {
       file: outputDir + pkg.module,
       format: 'es',
-      sourcemap: true
+      sourcemap: true,
+      banner: banner
     },
     {
       file: outputDir + pkg.main,
       name: globalName,
       format: 'umd',
-      sourcemap: true
+      sourcemap: true,
+      banner: banner
     }
   ],
   plugins: [

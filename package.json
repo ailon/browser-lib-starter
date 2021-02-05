@@ -4,6 +4,7 @@
   "description": "lib developer starter kit",
   "main": "lib-dev-starter-test.js",
   "module": "lib-dev-starter-test.esm.js",
+  "author": "Author Name",
   "license": "MIT",
   "private": false,
   "scripts": {
