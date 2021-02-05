@@ -2,6 +2,7 @@ import typescript from '@rollup/plugin-typescript';
 import pkg from './package.json';
 import del from 'rollup-plugin-delete';
 import dts from 'rollup-plugin-dts';
+import { terser } from 'rollup-plugin-terser';
 
 const outputDir = './dist/';
 
@@ -40,6 +41,7 @@ export default [{
   ],
   plugins: [
     typescript(),
+    terser(),
     del({ targets: ['dts/*']})
   ]
 }];
