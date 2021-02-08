@@ -8,8 +8,9 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "lint": "eslint src",
     "start": "rollup --config rollup.config.dev.js -w",
-    "build": "rollup --config rollup.config.prod.js",
+    "build": "yarn lint && rollup --config rollup.config.prod.js",
     "docs": "typedoc"
   },
   "dependencies": {
