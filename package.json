@@ -13,6 +13,10 @@
     "build": "yarn lint && rollup --config rollup.config.prod.js",
     "docs": "typedoc"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ailon/browser-lib-starter"
+  },
   "dependencies": {
   },
   "devDependencies": {
