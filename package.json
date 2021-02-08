@@ -9,7 +9,8 @@
   "private": false,
   "scripts": {
     "start": "rollup --config rollup.config.dev.js -w",
-    "build": "rollup --config rollup.config.prod.js"
+    "build": "rollup --config rollup.config.prod.js",
+    "docs": "typedoc"
   },
   "dependencies": {
     "@rollup/plugin-typescript": "^8.1.1",
@@ -29,5 +30,8 @@
     "rollup-plugin-terser": "^7.0.2",
     "tslib": "^2.1.0",
     "typescript": "^4.1.3"
+  },
+  "devDependencies": {
+    "typedoc": "^0.20.23"
   }
 }
