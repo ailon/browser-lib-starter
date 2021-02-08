@@ -1,9 +1,9 @@
 {
-  "name": "lib-dev-starter-test",
+  "name": "browser-lib-starter",
   "version": "1.0.0",
-  "description": "lib developer starter kit",
-  "main": "lib-dev-starter-test.js",
-  "module": "lib-dev-starter-test.esm.js",
+  "description": "browser library developer starter kit",
+  "main": "browser-lib-starter.js",
+  "module": "browser-lib-starter.esm.js",
   "author": "Author Name",
   "license": "MIT",
   "private": false,
